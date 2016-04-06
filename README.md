@@ -10,23 +10,37 @@
 
 ### Server
 
-Configuration file name example: `server-conf.json`
+Configuration file name example: `src/main/resources/demoConfig.conf`
 
 ```
-{
-  "port": 8077,
-  "maxConnection": 100,
-  "dbAddress": "127.0.0.1",
-  "dbPort": 3307
+# 样例配置文件
+
+server {
+  port=8077
+  maxConnection=100
 }
+
+db {
+  host="localhost"
+  port=3307
+  name="demoDB"
+  username="root"
+  password="123456"
+}
+
 ```
 
 字段解释:
 ```
-port: 服务端绑定的端口号
+server.port: 服务端绑定的端口号
 maxConnection: 最大接入连接数
-dbAddress: MySQL数据库地址
-dbPort: MySQL数据库端口号
+db.host: 数据库host
+db.port: 数据库端口号
+db.name: 数据库名称
+db.username: 登录用户名
+db.password: 登录密码
 ```
 
-... TODO
+## 使用的第三方库
+
+- <a href="https://github.com/typesafehub/config">typesafe.config</a>
