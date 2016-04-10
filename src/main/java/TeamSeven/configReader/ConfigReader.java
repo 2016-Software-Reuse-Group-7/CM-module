@@ -5,8 +5,12 @@ package TeamSeven.configReader;
  */
 public interface ConfigReader {
 
-    void loadConfiguration(String path);
-    int getConfigurationPort();
-
-
+    public String getPort();
+    public String getMaxSecond();
+    public String getMaxLogin();
+    public String getHost();
+    public void setHost(String host);
+    public void setPort(String port);
+    public void setMaxSecond(String maxSecond);
+    public void setMaxLogin(String maxLogin);
 }
