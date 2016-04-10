@@ -64,4 +64,10 @@ public class ConfigInfoTest {
         String DBUsername = configInfo.getDBConfigureUsername();
         assertEquals(DBUsername,"root");
     }
+
+    @Test
+    public void getMaxMessagePerLogin() throws Exception{
+        int maxMessagePerLogin = configInfo.getMaxMessagePerLogin();
+        assertEquals(maxMessagePerLogin,100);
+    }
 }

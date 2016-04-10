@@ -8,6 +8,7 @@ public abstract class ConfigReader{
     public abstract void loadConfiguration(String path);
     public abstract int getConfigurationPort();
     public  abstract int getMaxConnection();
+    public abstract int getMaxMessagePerLogin();
     public  abstract int getMaxMessagePerSecond();
     public  abstract String getDBConfigureHost();
     public  abstract int getDBConfigurePort();

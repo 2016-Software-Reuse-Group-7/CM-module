@@ -15,8 +15,19 @@ public class ConfigInfo  extends ConfigReader {
         try {
             config = ConfigFactory.load(path);
         } catch (ConfigException.BadPath e) {
-            System.out.println("Bad Path!");
+            System.out.println(e.toString());
         }
+    }
+
+    @Override
+    public int getMaxMessagePerLogin(){
+        int retMaxMessagePerLogin = -1;
+        try {
+            retMaxMessagePerLogin = config.getInt("server.maxMessagePerLogin");
+        }catch (ConfigException.BadValue e){
+            System.out.println(e.toString());
+        }
+        return retMaxMessagePerLogin;
     }
 
     @Override
@@ -25,7 +36,7 @@ public class ConfigInfo  extends ConfigReader {
         try {
             retPort = config.getInt("server.port");
         }catch (ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retPort;
     }
@@ -36,7 +47,7 @@ public class ConfigInfo  extends ConfigReader {
         try{
             retMaxConnection = config.getInt("server.maxConnection");
         }catch(ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retMaxConnection;
     }
@@ -47,7 +58,7 @@ public class ConfigInfo  extends ConfigReader {
         try{
             retMaxMessagePerSecond = config.getInt("server.maxMessagePerSecond");
         }catch(ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retMaxMessagePerSecond;
     }
@@ -58,7 +69,7 @@ public class ConfigInfo  extends ConfigReader {
         try {
             retDBHost = config.getString("db.host");
         }catch (ConfigException e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retDBHost;
     }
@@ -69,7 +80,7 @@ public class ConfigInfo  extends ConfigReader {
         try {
             retDBPort = config.getInt("db.port");
         }catch (ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retDBPort;
     }
@@ -80,7 +91,7 @@ public class ConfigInfo  extends ConfigReader {
         try {
             retDBName = config.getString("db.name");
         }catch (ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retDBName;
     }
@@ -91,7 +102,7 @@ public class ConfigInfo  extends ConfigReader {
         try{
             retDBPsword = config.getString("db.password");
         }catch (ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retDBPsword;
     }
@@ -102,7 +113,7 @@ public class ConfigInfo  extends ConfigReader {
         try {
             retDBUsername = config.getString("db.username");
         }catch (ConfigException.BadValue e){
-            System.out.println("No such Value");
+            System.out.println(e.toString());
         }
         return retDBUsername;
     }
