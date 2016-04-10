@@ -18,6 +18,8 @@ Configuration file name example: `src/main/resources/demoConfig.conf`
 server {
   port=8077
   maxConnection=100
+  maxMessagePerLogin=100
+  maxMessagePerSecond=5
 }
 
 db {
@@ -33,12 +35,35 @@ db {
 字段解释:
 ```
 server.port: 服务端绑定的端口号
-maxConnection: 最大接入连接数
+server.maxConnection: 最大接入连接数
+server.maxMessagePerLogin: 一次登陆可发最大消息数
+server.maxMessagePerSecond: 每秒消息最大发送数
 db.host: 数据库host
 db.port: 数据库端口号
 db.name: 数据库名称
 db.username: 登录用户名
 db.password: 登录密码
+```
+
+##封装的Java类的方法
+```
+  int getConfigurationPort();
+  int getMaxConnection();
+  int getMaxMessagePerLogin();
+  int getMaxMessagePerSecond();
+  String getDBConfigureHost();
+  int getDBConfigurePort();
+  String getDBConfigureName();
+  String getDBConfigurePassword();
+  String getDBConfigureUsername();
+```
+
+##**Demo**
+```java
+import TeamSeven.configReader.ConfigInfo;
+ConfigInfo configInfo = new ConfigInfo();
+configInfo.loadConfiguration("demoConfig.conf"); //Setting the path as demoConfig is also OK.
+int serverPort = configInfo.getConfigurationPort();
 ```
 
 ## 使用的第三方库
